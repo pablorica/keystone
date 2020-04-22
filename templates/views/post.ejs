@@ -1,0 +1,97 @@
+<%- include('header'); -%>
+
+<div id="main-page-wrap">
+	<article class="after-header container big-padding news-single">
+	
+	<header>
+	
+	<time datetime="<%= data.post.publishedDate %>" pubdate=""><%= moment(data.post.publishedDate).format("HH:mm DD-MM-YYYY") %> - <%= moment(data.post.publishedDate).fromNow() %></time>
+	
+	<h1 class="title"><%= data.post.title %></h1>
+	
+	</header>
+	<div class="img-container">
+		<img src="<%= data.post.image.secure_url %>" alt=""/>
+	</div>
+	<%- data.post.content.extended %>
+	
+	<footer class="row">
+	<div class="tags-list col-xs-12 col-md-6">
+		<% for(var i=0; i<data.post.categories.length; i++) {%>
+			<a href="blog/category/<%= data.post.categories[i].slug %>"><%= data.post.categories[i].name %></a>
+		<% } %>
+	</div>
+	
+	<div class="share-col col-xs-12 col-md-6">
+		<span class="headings-color">Share on:</span>
+		<div class="social-likes social-likes_rounded" data-single-title="Share">
+			<div class="facebook" title="Share link on Facebook">
+				Facebook
+			</div>
+			<div class="twitter" title="Share link on Twitter">
+				Twitter
+			</div>
+			<div class="plusone" title="Share link on Google+">
+				Google+
+			</div>
+		</div>
+	</div>
+	</footer>
+	
+	
+	</article>
+	
+	
+</div>
+
+
+<%- include('footer'); -%>
+
+
+<!--
+
+{
+  "post": {
+    "_id": "545901bfb48432040fde63ad",
+    "slug": "another-post",
+    "title": "Another post",
+    "__v": 0,
+    "author": {
+      "_id": "5321c59c73adea8c6925cecf",
+      "__v": 0,
+      "email": "moncho@codigo.co.uk",
+      "isAdmin": true,
+      "password": "$2a$10$/KwNtBHHOYA9a1M3uldFY.vtZ9MrPj0mqYct6IWxZdR5TobRXzNDe",
+      "name": {
+        "first": "Moncho",
+        "last": "Pena"
+      }
+    },
+    "publishedDate": "2014-11-03T23:00:00.000Z",
+    "categories": [],
+    "content": {
+      "brief": "<p>this is a test</p>",
+      "extended": "<p>another test</p>"
+    },
+    "image": {
+      "public_id": "h6u5s2cdrnvzjlozdooa",
+      "version": 1415119339,
+      "signature": "0fc7a835a30c03b6d2b518e9e1a6ad1147cfcc40",
+      "width": 480,
+      "height": 638,
+      "format": "jpg",
+      "resource_type": "image",
+      "url": "http://res.cloudinary.com/keystone-demo/image/upload/v1415119339/h6u5s2cdrnvzjlozdooa.jpg",
+      "secure_url": "https://res.cloudinary.com/keystone-demo/image/upload/v1415119339/h6u5s2cdrnvzjlozdooa.jpg"
+    },
+    "state": "published"
+  }
+}
+
+-->
+
+
+    	<h1><%= data.post.title %></h1>
+
+  </body>
+</html>

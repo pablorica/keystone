@@ -1,0 +1,79 @@
+<%- include('header'); -%>
+
+<section class="hero-section after-header" style="height: 500px;" data-disable-resize>
+<% if(data.member.big_photo.secure_url) {%>
+<div class="background image" style="background-image: url('<%= data.member.big_photo.secure_url %>');" data-parallax="-0.5">
+<% } else { %>
+<div class="background image" style="background-image: url('images/big-backgrounds/bg4.jpg');" data-parallax="-0.5">
+<% } %>
+</div>
+<div class="content remove-padding">
+	<div class="content-inner">
+		<h1 class="bold"><%= data.member.name.first %> <%= data.member.name.last %></h1>
+	</div>
+</div>
+</section><section class="container big-padding careers-single">
+<div class="row">
+	<div class="col-xs-12 col-sm-9">
+		<h1 class="title"><%= data.member.position %></h1>
+		
+		<%- data.member.description %>
+		
+	</div>
+	<div class="col-xs-12 col-sm-3 buttons-col">
+		<div class="profile-image">
+			<img src="<%= data.member.photo.secure_url %>" alt=""></img>
+		</div>
+		<p>
+			<a class="btn btn-default text-uppercase" href="contact">Contact</a>
+		</p>
+		<span class="headings-color"><%= lingua.follow %> <%= data.member.name.first %> <%= lingua.on %>:</span>
+		<div class="social-likes social-likes_vertical">
+			<% if(data.member.facebook) {%>
+			<div title="<%= lingua.follow %> <%= data.member.name.first %> <%= lingua.on %> Facebook">
+				<a href="<%= data.member.facebook %>" target="_blank"><i class="entypo facebook"></i> Facebook</a>
+			</div>
+			<% } %>
+			<% if(data.member.twitter) {%>
+			
+			<div title="<%= lingua.follow %> <%= data.member.name.first %> <%= lingua.on %> Twitter">
+				<a href="<%= data.member.twitter %>" target="_blank"><i class="entypo twitter"></i> Twitter</a>
+			</div>
+			<% } %>
+			<% if(data.member.google) {%>
+			<div title="<%= lingua.follow %> <%= data.member.name.first %> <%= lingua.on %> Google+">
+				<a href="<%= data.member.google %>" target="_blank"><i class="entypo google-circles"></i> Google+</a>
+			</div>
+			<% } %>
+			<% if(data.member.linkedin) {%>
+			<div title="<%= lingua.follow %> <%= data.member.name.first %> <%= lingua.on %> Linkedin">
+				<a href="<%= data.member.linkedin %>" target="_blank"><i class="entypo linkedin"></i> Linkedin</a>
+			</div>
+			<% } %>
+			<% if(data.member.tumblr) {%>
+			<div title="<%= lingua.follow %> <%= data.member.name.first %> <%= lingua.on %> Tumblr">
+				<a href="<%= data.member.tumblr %>" target="_blank"><i class="entypo tumblr"></i> Tumblr</a>
+			</div>
+			<% } %>
+			<% if(data.member.dribbble) {%>
+			<div title="<%= lingua.follow %> <%= data.member.name.first %> <%= lingua.on %> Dribbble">
+				<a href="<%= data.member.dribbble %>" target="_blank"><i class="entypo dribbble"></i> Dribbble</a>
+			</div>
+			<% } %>
+			<% if(data.member.github) {%>
+			<div title="<%= lingua.follow %> <%= data.member.name.first %> <%= lingua.on %> GitHub">
+				<a href="<%= data.member.github %>" target="_blank"><i class="entypo github"></i> GitHub</a>
+			</div>
+			<% } %>
+		</div>
+	</div>
+</div>
+</section>
+
+<%- include('footer'); -%>
+
+<!--
+
+{ _id: 5321da4885ef84167ebdeb07, __v: 0, description: 'No fear - We can do it', dribble: '', facebook: 'https://www.facebook.com/monchopena', github: 'https://github.com/monchopena', google: 'https://plus.google.com/+MonchoPena', linkedin: 'https://es.linkedin.com/in/ramonpena', position: 'CTO', tumblr: '', twitter: 'https://twitter.com/monchopena', slug: 'moncho-pena', photo: { public_id: 'khwniksmfys6r4esscla', version: 1415912591, signature: '362c0faa47591ca42a3a0e641528fe3ec728d06a', width: 240, height: 240, format: 'jpg', resource_type: 'image', url: 'http://res.cloudinary.com/keystone-demo/image/upload/v1415912591/khwniksmfys6r4esscla.jpg', secure_url: 'https://res.cloudinary.com/keystone-demo/image/upload/v1415912591/khwniksmfys6r4esscla.jpg' }, name: { last: 'Pena', first: 'Moncho' } }
+
+-->

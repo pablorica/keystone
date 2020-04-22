@@ -1,0 +1,148 @@
+
+/*
+* CSS Document for Codigo.Co.Uk v.1  Global Stylesheet 
+* Description: Creative / Portfolio One-Page Theme
+* Author: Moncho Pena / Pablo Rica
+* Author URI: http://codigo.co.uk
+* Template: Axis
+* Version: 1.0
+* Copyright 2015 codigo digital
+*/
+
+/*
+	@media (min-width:1200px){} lg (larger desktops)
+	@media (min-width:992px) and (max-width:1199px){} md (desktops)
+	@media (min-width:768px) and (max-width:991px){} sm (tablets)
+	@media (min-width:768px){} 
+	@media (max-width:767px){} xs (phones)
+	@media screen and (max-width:400px){}
+*/
+
+/*
+blue: #1AB2F0;
+*/
+
+
+/* = General
+-------------------------------------------------------------- */
+.name a,
+.name a:hover, 
+.name a:focus {
+    color: #FFF;
+    text-decoration: none;
+}
+
+
+
+/* = Header 
+-------------------------------------------------------------- */
+
+ul#mainnav {
+    height: auto;
+    margin:0 0 0 5%;
+    padding: 20px 0 0 0;
+    float: left;
+}
+
+ul#mainnav li {
+    display: inline-block;
+    float: left;
+    position: relative;
+    z-index: 1000;
+    margin-right: 20px;
+}
+ul#mainnav li a {
+    color:#fff;
+}
+
+@media (min-width:992px) {
+	.menu-toggle {
+		display: none;
+	}
+	#main-header {
+	    padding: 10px 40px 20px 40px;
+	}
+	@-moz-document url-prefix() { 
+	  #main-header {
+	    padding: 10px 40px 0 40px;
+	  }
+	}
+	#main-header .shadow-helper {
+	    margin: 0 -40px -28px;
+	}
+}
+@media (max-width:991px) {
+	#navigation {
+	    display: none;
+	}
+	#main-header {
+	    padding: 20px 40px;
+	}
+	#main-header .shadow-helper {
+	    margin: 20px -40px -28px;
+	}
+}
+
+/* = Content
+-------------------------------------------------------------- */
+
+.descr {
+	padding:0 10px;
+}
+
+
+/* = Profile
+-------------------------------------------------------------- */
+.profile-image {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0px auto 27px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.profile-image img {
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	height: 100%;
+	transform: translateX(-50%);	
+	-ms-transform: translateX(-50%); /* IE 9 */
+   	-webkit-transform: translateX(-50%); /* Safari */
+}
+
+
+
+/* = Blog
+-------------------------------------------------------------- */
+.meta-info {
+	position:relative;
+	width:50%;
+	margin: 0px auto;
+	padding-left: 50px;
+}
+.meta-info .main-image,
+.meta-info time {
+	float:left;
+	
+}
+.news-list > article time {
+    margin-left: 13.5px;
+    margin-top: 13.5px;
+    text-transform:none;
+    font-size: 15px;
+}
+.news-list > article .main-image {
+    width: 60px;
+    height: 60px;
+    margin: 0px auto;
+}
+
+/* = Footer
+-------------------------------------------------------------- */
+.container-wrap.footer ul.bottom-menu li a {
+    text-transform:none;
+}
+
+
+

@@ -1,0 +1,45 @@
+<%- include('header'); -%>
+
+  <section class="hero-section after-header" data-disable-resize="" style=
+    "height: 400px;">
+        <div class="background image" data-parallax="-0.5" style=
+        "background-image: url('<%= photo.services_page %>');"></div>
+
+        <div class="content remove-padding">
+            <div class="content-inner">
+                <h1 class="bold"><%= lingua.services %></h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="icons-list-container">
+        <ul class=
+        "icons-list services block-grid-xs-1 block-grid-sm-2 block-grid-md-3">
+			<% for(var i=0; i<data.whatwedo.length; i++) {%>
+            <li>
+                <div class="inner-content">
+                    <i class="entypo <%= data.whatwedo[i].icon %>"></i>
+
+                    <h3 class="title"><%= data.whatwedo[i].title %></h3>
+
+                    <p class="descr"><%= data.whatwedo[i].content %></p>
+                </div>
+            </li>
+            <% } %>
+        </ul>
+    </section>
+
+    <section class="container-wrap secondary-bg">
+        <div class="container big-padding text-center">
+            <h2><%= lingua.did_you_find_service %></h2>
+
+            <nav>
+			<a class=
+                "btn btn-default text-uppercase" href=
+                "contact"><%= lingua.contact %></a>
+            </nav>
+        </div>
+    </section>     
+     
+     
+<%- include('footer'); -%>

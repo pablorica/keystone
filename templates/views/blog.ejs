@@ -1,0 +1,176 @@
+<%- include('header'); -%>
+
+    <section class="hero-section after-header" data-disable-resize="" style=
+    "height: 400px;">
+        <div class="background image" data-parallax="-0.5" style=
+        "background-image: url('<%= photo.blog_page %>');"></div>
+
+        <div class="content remove-padding">
+            <div class="content-inner">
+                <h1 class="bold"><%= lingua.blog %></h1>
+            </div>
+        </div>
+    </section>
+    
+  
+
+    <div class="row nomargin">
+        <main class="news-list col-sm-7 col-md-8" data-mh="newspage">
+            <% for(var i=0; i<data.posts.results.length; i++) {%>
+            <article>
+              <div class="meta-info clearfix">
+                <div class="main-image"><img alt="" src=
+                "<%= data.posts.results[i].author.photo.secure_url %>">
+                </div>
+                <time datetime="<%= data.posts.results[i].publishedDate %>" pubdate=
+                ""><%= moment(data.posts.results[i].publishedDate).format("HH:mm DD-MM-YYYY") %> - <%= moment(data.posts.results[i].publishedDate).fromNow() %></time>
+              </div>
+
+                <h1 class="title"><%= data.posts.results[i].title %></h1><span class="btn btn-default">READ
+                MORE</span><a class="link-overlay" href="blog/post/<%= data.posts.results[i].slug %>"></a>
+            </article>
+            <% } %>
+            <div class="text-center">
+            
+
+				
+	            <ul class="pagination pagination-sm">
+	              <% if (data.posts.previous>0) { %>
+		          	<li><a href="blog/<% if (data.category) { %>category/<%= data.category.slug %>/<% } %><%= data.posts.previous %>">Prev</a></li>
+		          <% } %>
+		          
+		          <% for(var i=0; i<data.posts.pages.length; i++) {%>
+			          <li <% if (data.posts.currentPage==data.posts.pages[i]) { %>class="active"<% } %>><a href="blog/<% if (data.category) { %>category/<%= data.category.slug %>/<% } %><%= data.posts.pages[i] %>"><%= data.posts.pages[i] %></a></li>
+			      <% } %>
+
+				  <% if (data.posts.next>0) { %>
+		          	<li><a href="blog/<% if (data.category) { %>category/<%= data.category.slug %>/<% } %><%= data.posts.next %>">Next</a></li>
+		          <% } %>
+		          
+				</ul>
+			</div>
+        </main>
+
+        <aside class="sidebar secondary-bg col-sm-5 col-md-4" data-mh=
+        "newspage">
+
+            
+            <section>
+                <h1><%= lingua.categories %></h1>
+
+                <div class="tags-list">
+                	<% for(var i=0; i<data.categories.length; i++) {%>
+                    	<a href="blog/category/<%= data.categories[i].slug %>"><%= data.categories[i].name %></a>
+                    <% } %>
+                </div>
+            </section>
+
+        </aside>
+    </div>
+     
+<%- include('footer'); -%>
+
+
+<!--
+
+{
+  "posts": {
+    "total": 2,
+    "results": [
+      {
+        "_id": "545901bfb48432040fde63ad",
+        "slug": "another-post",
+        "title": "Another post",
+        "__v": 0,
+        "author": {
+          "_id": "5321c59c73adea8c6925cecf",
+          "__v": 0,
+          "email": "moncho@codigo.co.uk",
+          "isAdmin": true,
+          "password": "$2a$10$/KwNtBHHOYA9a1M3uldFY.vtZ9MrPj0mqYct6IWxZdR5TobRXzNDe",
+          "name": {
+            "first": "Moncho",
+            "last": "Pena"
+          }
+        },
+        "publishedDate": "2014-11-03T23:00:00.000Z",
+        "categories": [],
+        "content": {
+          "brief": "<p>this is a test</p>",
+          "extended": "<p>another test</p>"
+        },
+        "image": {
+          "public_id": "h6u5s2cdrnvzjlozdooa",
+          "version": 1415119339,
+          "signature": "0fc7a835a30c03b6d2b518e9e1a6ad1147cfcc40",
+          "width": 480,
+          "height": 638,
+          "format": "jpg",
+          "resource_type": "image",
+          "url": "http://res.cloudinary.com/keystone-demo/image/upload/v1415119339/h6u5s2cdrnvzjlozdooa.jpg",
+          "secure_url": "https://res.cloudinary.com/keystone-demo/image/upload/v1415119339/h6u5s2cdrnvzjlozdooa.jpg"
+        },
+        "state": "published"
+      },
+      {
+        "_id": "5458da3b5f923900098661ce",
+        "slug": "this-is-my-first-post",
+        "title": "This is my first post",
+        "__v": 1,
+        "author": {
+          "_id": "5321c59c73adea8c6925cecf",
+          "__v": 0,
+          "email": "moncho@codigo.co.uk",
+          "isAdmin": true,
+          "password": "$2a$10$/KwNtBHHOYA9a1M3uldFY.vtZ9MrPj0mqYct6IWxZdR5TobRXzNDe",
+          "name": {
+            "first": "Moncho",
+            "last": "Pena"
+          }
+        },
+        "publishedDate": "2014-11-03T23:00:00.000Z",
+        "categories": [
+          {
+            "_id": "5458da135f923900098661cc",
+            "key": "angular",
+            "name": "Angular",
+            "__v": 0
+          },
+          {
+            "_id": "5458da265f923900098661cd",
+            "key": "node-js",
+            "name": "Node JS",
+            "__v": 0
+          }
+        ],
+        "content": {
+          "brief": "<p>This is the content Brief</p>",
+          "extended": "<p>This is the extenden view</p>"
+        },
+        "image": {
+          "public_id": "wjik7hpmlcyxj0rks80a",
+          "version": 1415109254,
+          "signature": "8656a784e262f0016f07025872823816638109d2",
+          "width": 720,
+          "height": 473,
+          "format": "jpg",
+          "resource_type": "image",
+          "url": "http://res.cloudinary.com/keystone-demo/image/upload/v1415109254/wjik7hpmlcyxj0rks80a.jpg",
+          "secure_url": "https://res.cloudinary.com/keystone-demo/image/upload/v1415109254/wjik7hpmlcyxj0rks80a.jpg"
+        },
+        "state": "published"
+      }
+    ],
+    "currentPage": 1,
+    "totalPages": 1,
+    "pages": [
+      1
+    ],
+    "previous": false,
+    "next": false,
+    "first": 1,
+    "last": 2
+  }
+}
+
+-->

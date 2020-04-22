@@ -1,0 +1,39 @@
+<%- include('header'); -%>
+
+<div id="main-page-wrap">
+	<nav class="after-header isotope-filter">
+	<div class="container">
+		<ul class="desktop-filter hidden-xs convert-to-select" data-isotope-id="portfolio">
+			<li class="active"><a href="portfolio.html#" data-filter="*">All works</a></li>
+		<% for(var i=0; i<data.portfolio_types.length; i++) {%>
+			<li><a href="portfolio.html#" data-filter=".<%= data.portfolio_types[i].key %>"><%= data.portfolio_types[i].name %></a></li>
+		<% }%>	
+		</ul>
+	</div>
+	</nav><section>
+	<ul class="portfolio-tiles isotope block-grid-xs-1 block-grid-sm-2 block-grid-md-3" data-isotope-id="portfolio">
+	<% for(var i=0; i<data.portfolio.length; i++) {%>
+		
+		<li class="<%= data.portfolio[i].type.key %> <%= data.portfolio[i].image_display %>">
+		<div class="content">
+			<div class="image-bg" style="background-image: url('<%= data.portfolio[i].image_big.secure_url %>');">
+			</div>
+			<div class="overlay">
+				<h3 class="title"><%= data.portfolio[i].title %></h3>
+				<p class="descr"><%= data.portfolio[i].subtitle %></p>
+			</div>
+			<a href="<%= data.portfolio[i].url %>" class="link-overlay" target="_blank">See more</a>
+		</div>
+		</li>
+	<% }%>
+	</ul>
+	</section>
+</div>
+
+<%- include('footer'); -%>
+
+<!--
+
+
+
+-->

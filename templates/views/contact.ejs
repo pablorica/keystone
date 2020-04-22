@@ -1,0 +1,110 @@
+<%- include('header'); -%>
+
+
+    <section class="hero-section after-header" data-disable-resize="" style=
+    "height: 400px;">
+        <div class="background image" data-parallax="-0.5" style=
+        "background-image: url('<%= photo.contact_page %>');"></div>
+
+        <div class="content remove-padding">
+            <div class="content-inner">
+                <h1 class="bold"><%= lingua.contact %></h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="container big-padding">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4" style="padding-right: 50px;">
+                <h3><%= lingua.get_in_touch_with_us %></h3>
+
+                <p><%= lingua.we_are_available_body %></p>
+            </div>
+
+            <div class="col-xs-12 col-sm-8">
+                <form action="contactus"
+                id="contact_form" method="post" name="contact_form">
+                    <div class="alert alert-success hide-soft">
+                       <%= lingua.form_ok %>  ;)
+                    </div>
+
+                    <div class="alert alert-danger hide-soft">
+                        <%= lingua.message_ko %> 
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-xs-12 col-sm-6">
+                            <label for="fullname_field"><%= lingua.form_name %>*</label>
+                            <input class="form-control" id="fullname_field"
+                            name="name" type="text">
+                        </div>
+
+                        <div class="form-group col-xs-12 col-sm-6">
+                            <label for="email_field"><%= lingua.form_email %>*</label>
+                            <input class="form-control" id="email_field" name=
+                            "email" type="email">
+                        </div>
+                    </div>
+
+					<div class="form-group">
+						<label for="subject_field"><%= lingua.form_subject %>*</label>
+                            <input class="form-control" id="subject_field" name=
+                            "subject" type="text">
+					</div>
+
+                    <div class="form-group">
+                        <label for="message_field"><%= lingua.message %>*</label>
+                        <textarea class="form-control" id="message_field" name=
+                        "comments" required="" rows="7">
+</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-default btn-long text-uppercase"
+                        type="submit"><%= lingua.form_send_it %></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-wrap secondary-bg icons-list-container">
+        <ul class="icons-list contacts block-grid-xs-1 block-grid-sm-3">
+            <li>
+                <div class="inner-content">
+                    <i class="entypo phone"></i>
+
+                    <p class="descr"><%= lingua.phone %></p>
+                </div>
+            </li>
+
+            <li>
+                <div class="inner-content">
+                    <i class="entypo location"></i>
+
+                    <p class="descr">
+                    <%= lingua.address1 %><br>
+                     <%= lingua.address2 %>
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <div class="inner-content">
+                    <i class="entypo mail"></i>
+
+                    <p class="descr"><%= lingua.email %></p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section class="place-map" data-lat="51.5411361" data-long="0.6863684999999577"
+    style="height: 400px;">
+        <b><%= lingua.address1 %></b><br>
+        <b><%= lingua.address2 %></b><br>
+        UK
+    </section>
+
+     
+<%- include('footer'); -%>

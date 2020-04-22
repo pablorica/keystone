@@ -1,0 +1,7 @@
+#ignore me please!
+npm-debug.log
+node_modules
+.DS_Store
+._*
+axis
+axis.tar.gz

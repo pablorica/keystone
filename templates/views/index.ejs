@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+
+<html lang="en"><!--<![endif]--><head>
+        <meta charset="utf-8">
+
+        <title><%= lingua.title %></title>
+        <meta content="" name="description">
+        <meta content="" name="author">
+
+        <!-- Mobile Specific Metas -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/gridiculous.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/supersized.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="theme/supersized.shutter.css" type="text/css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css"/>
+        <link rel="stylesheet" type="text/css" href="css/flexslider.css">
+        <link rel="stylesheet" type="text/css" href="css/shCore.css">
+
+        <!--[if lt IE 9]>
+                <script src="js/css3-mediaqueries.js"></script>
+                <script src="js/html5.js"></script>
+                <![endif]-->
+
+        <!-- Favicons -->
+        <link href="images/favicon.ico" rel="shortcut icon">
+
+        <!-- Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+
+        <!-- Plugins -->
+        <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
+		<script type="text/javascript" src='js/jquery.scrollTo-1.4.2-min.js'></script>
+        <script type="text/javascript" src="js/supersized.3.2.7.min.js"></script>
+        <script type="text/javascript" src="theme/supersized.shutter.min.js"></script>
+        <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script> 
+        <script type="text/javascript" src="js/jquery.quicksand.js"></script> 
+        <script type="text/javascript" src="js/jquery.ba-resize.min.js"></script>
+        <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+        <script type="text/javascript" src="js/modernizr.js"></script>
+        
+        <!-- Custom -->
+        <script type="text/javascript" src="js/script.js"></script>
+
+        <!-- Google Maps -->
+		<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript" src="js/gmap3.js"></script> 
+
+        <!-- Submit contact form -->
+        <script type="text/javascript">
+		function submitContactForm(){
+                $.post('contactus', $('#contactform').serialize(), function(response){
+                	var ok='<%= lingua.form_ok %>';
+                	var ko='<%= lingua.form_ko %>';
+                	if (response=='1') {
+                		$('#contactOk').html(ok);
+                		$('#contactKo').html('');
+                	} else {
+                		$('#contactKo').html(ko);
+                	}
+                    //$('#contactResponse').html(response);
+                }, 'html');
+            }
+		</script> 
+        <!-- Setup Supersized Plugin -->
+        <script type="text/javascript">
+            $(document).ready(function(){
+						$.supersized({
+						
+							// Functionality
+							slide_interval          :   3500,		// Length between transitions
+							transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+							transition_speed		:	700,		// Speed of transition							   
+							// Components							
+							slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+							slides 					:  	[			// Slideshow Images
+									
+									
+									
+								//
+								
+								<% for(var i=0; i<data.mainphrase.length; i++) {%>								
+								{image : '<%= data.mainphrase[i].image_src.secure_url %>', title : '<%= data.mainphrase[i].image_title %>', thumb : '', url : ''}
+								
+									<% if (i<(data.mainphrase.length-1)) { %>
+										//put a commma		
+										,
+									<% } %>
+								<% } %>
+								
+								
+								//{image : 'images/bg-image-02.jpg', title : 'Image Credit: Dreamstime.com', thumb : '', url : ''},
+								//{image : 'images/bg-image-03.jpg', title : 'Image Credit: Dreamstime.com', thumb : '', url : ''} // Be sure there is no comma after your last slide
+							]
+							
+						});
+            });
+        </script>
+    </head>
+    <body>
+		<div id="content">
+            <!-- Navigation -->
+            <nav id="one-page" class="menu-style-1">
+                <div id="small-logo" class="align-left"><a href="#home" style="display:block;width:100px;height:20px;">&nbsp;</a></div>
+                <ul id="navigation">
+                    <li><a href="#about"><%= lingua.about %></a></li>
+                    <li><a href="#team"><%= lingua.the_team %></a></li>
+                    <li><a href="#contact"><%= lingua.contact %></a></li>
+                </ul>    
+            <!-- Home -->
+            <a id="icon-home" href="#home"></a>   
+            </nav>
+
+            <!-- /Navigation -->
+            <div class="clearfix"></div>
+
+            <!-- START Section / "Home" -->
+            <div id="scroll-past" class="fullscreen-section-wrapper-no-pad overlay-accent">
+                <section id="home">
+                    <!-- Logo -->
+                    <div id="logo" class="align-left"></div>
+                    <!-- /Logo -->
+                    <a id="nav-icon" href="#"></a>
+                    <!-- START Flexslider -->
+                    <div id="flexslider" class="cf">
+                        <div id="main" role="main">
+                            <div class="slider">
+                                <div id="flexslider-style-1"  class="flexslider carousel">
+                                    <ul class="slides">
+                                    	<% for(var i=0; i<data.mainphrase.length; i++) {%>
+                                        	<li class="carousel-text">
+                                            	<span class="line-one"><%= data.mainphrase[i].phrase_line_1 %></span>
+                                            	<span><%= data.mainphrase[i].phrase_line_2 %></span>
+                                            </li>
+                                        <% } %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><!-- END Flexslider -->
+
+                        <div class="bottom-module">
+                            <ul class="align-left link-module-icons">
+                                <!-- replace # with your URL -->
+                                <%/*
+                                <li class="icon-soc-cir-white-fb" onclick='window.location.href="#"'></li>
+                                <li class="icon-soc-cir-white-tumblr" onclick='window.location.href="#"'></li>
+                                <li class="icon-soc-cir-white-twitter" onclick='window.location.href="#"'></li>
+                                <li class="icon-soc-cir-white-dribble" onclick='window.location.href="#"'></li>
+                                <li class="icon-soc-cir-white-vimeo" onclick='window.location.href="#"'></li>
+                                */%>
+                                
+                            </ul> 
+                        </div>
+					</div>
+                </section>
+            </div>
+            <!-- END Section / "Home" -->
+
+            <!-- Anchor for Navigation -->
+            <div id="nav-anchor"></div>
+
+            <!-- START Section / "About" -->
+            <section id="about">
+                <div class="overlay-white-solid">
+                    <div class="fullscreen-section-wrapper">
+                        <h2><%= lingua.about_title %></h2>
+                        <div class="clearfix"></div>
+                        <div class="c9 big-text">
+                            <%= lingua.about_content %> 
+                        </div>
+                        <div class="clearfix"></div>
+                        
+                        <% for(var i=0; i<data.whatwedo.length; i++) {%>
+                        
+                        <div class="c3">
+                            <div class="rule-top">
+                                <div class="<%= data.whatwedo[i].icon %> circle align-left"></div><h3><%= data.whatwedo[i].title %></h3>
+                                <p><%= data.whatwedo[i].content %></p>
+                            </div>
+                        </div>
+                        
+                        <% } %>
+             
+                    </div>
+                </div>
+            </section>
+            <!-- END Section / "About" -->
+            <!-- START Section / "Callout" -->
+            <section id="callout">
+                <div class="background-image background-image-group">
+                    <div class="fullscreen-section-wrapper overlay-grey-80">
+                        <div>
+                            <h3 class="align-center text-black"><%= lingua.what_our_clients_are_saying_title %></h3>
+                            <div class="callout"><span class="light-grey">"</span><%= lingua.what_our_clients_are_saying_content %><span class="light-grey">"</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END Section / "Callout" -->
+
+
+            <!-- START Section / "Team" -->
+            <section id="team">
+                <div class="background-image background-image-group">
+                    <div class="fullscreen-section-wrapper overlay-black-85">
+                        <h2><%= lingua.meet_the_team %></h2>
+                            <% for(var i=0; i<data.team.length; i++) {%>
+                            <div class="c4">
+                                <div class="team-member">
+                                    <div class="team-content">
+                                        <!-- overlay -->
+                                        <div class="rollover" >
+                                            <div class="caption">
+                                                <h3><%= data.team[i].description %></h3>
+                                                <ul class="link-module-icons-floating"><li class="icon-acc-chat circle-align-center"></li></ul>
+                                            </div>
+                                		</div>
+                                        <!-- end overlay -->
+                                        <img src="<%= data.team[i].photo.secure_url %>" alt="team member">
+                                        <span class="name tag-black"><%= data.team[i].name.first %> <%=  data.team[i].name.last %></span>
+                                        <h5 class="text-accent"><%= data.team[i].position %></h5> 
+                                        <ul class="link-module-icons">
+                                        	<%if (data.team[i].facebook.length > 0) { %>
+                                            <li class="icon-soc-cir-blk-fb" onclick="window.open('<%= data.team[i].facebook %>','_blank')"></li>
+                                            <% } %>
+                                            <%if (data.team[i].tumblr.length > 0) { %>
+                                            <li class="icon-soc-cir-blk-tumblr" onclick="window.open('<%= data.team[i].tumblr %>','_blank')"></li>
+                                            <% } %>
+                                            <%if (data.team[i].twitter.length > 0) { %>
+                                            <li class="icon-soc-cir-blk-twitter" onclick="window.open('<%= data.team[i].twitter %>','_blank')"></li>
+                                            <% } %>
+                                            <%if (data.team[i].linkedin.length > 0) { %>
+                                            <li class="icon-soc-cir-blk-linkedin" onclick="window.open('<%= data.team[i].linkedin %>','_blank')"></li>
+                                            <% } %>
+                                            <%if (data.team[i].dribble.length > 0) { %>
+                                            <li class="icon-soc-cir-blk-dribble" onclick="window.open('<%= data.team[i].dribble %>','_blank')"></li>
+                                            <% } %>
+                                            <%if (data.team[i].google.length > 0) { %>
+                                            <li class="icon-soc-cir-blk-google" onclick="window.open('<%= data.team[i].google %>','_blank')"></li>
+                                            <% } %>
+                                            <%if (data.team[i].github.length > 0) { %>
+                                            <li class="icon-soc-cir-blk-github" onclick="window.open('<%= data.team[i].github %>','_blank')"></li>
+                                            <% } %>
+                                        </ul>                  
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+							<% } %>
+							
+							<%/*
+                            <div class="c4">
+                                <div class="team-member">
+                                    <div class="team-content">
+                                        <!-- overlay -->
+                                        <div class="rollover" >
+                                            <div class="caption">
+                                                <h3>Been with the Team for five years!</h3>
+                                                <ul class="link-module-icons-floating"><li class="icon-acc-email circle-align-center"></li></ul>
+                                            </div>
+                                		</div>
+                                        <!-- end overlay -->
+                                        <img src="images/team_03.jpg" alt="team member">
+                                        <span class="name tag-black">ben</span>
+                                        <h5 class="text-accent">Co-founder</h5>  
+                                        <ul class="link-module-icons">
+                                            <li class="icon-soc-cir-blk-fb" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-tumblr" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-twitter" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-linkedin" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-dribble" onclick='window.location.href="#"'></li>
+                                        </ul>                          
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="c4">
+                                <div class="team-member">
+                                    <div class="team-content">
+                                        <!-- overlay -->
+                                        <div class="rollover" >
+                                            <div class="caption">
+                                                <h3>We're hiring! Send me your resume.</h3>
+                                                <ul class="link-module-icons-floating"><li class="icon-acc-email circle-align-center"></li></ul>
+                                            </div>
+                                		</div>
+                                        <!-- end overlay --><img src="images/team_01.jpg" alt="team member">
+                                        <span class="name tag-black">erika</span>
+                                        <h5 class="text-accent">Managing Director</h5>    
+                                        <ul class="link-module-icons">
+                                            <li class="icon-soc-cir-blk-fb" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-tumblr" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-twitter" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-linkedin" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-dribble" onclick='window.location.href="#"'></li>
+                                        </ul>                         
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+
+                            <div class="c4">
+                                <div class="team-member">
+                                    <div class="team-content">
+                                       <!-- overlay -->
+                                        <div class="rollover" >
+                                            <div class="caption">
+                                                <h3>We're currently taking on new projects!</h3>
+                                                <ul class="link-module-icons-floating"><li class="icon-acc-email circle-align-center"></li></ul>
+                                            </div>
+                                		</div>
+                                        <!-- end overlay -->
+                                        <img src="images/team_06.jpg" alt="team member">
+                                        <span class="name tag-black">catie</span>
+                                        <h5 class="text-accent">Web Developer</h5>   
+                                        <ul class="link-module-icons">
+                                            <li class="icon-soc-cir-blk-fb" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-tumblr" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-twitter" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-linkedin" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-dribble" onclick='window.location.href="#"'></li>
+                                        </ul>                            
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+
+                            <div class="c4">
+                                <div class="team-member">
+                                    <div class="team-content">
+                                        <!-- overlay -->
+                                        <div class="rollover" >
+                                            <div class="caption">
+                                                <h3>Looking for a quote? Shoot me an email.</h3>
+                                                <ul class="link-module-icons-floating"><li class="icon-acc-email circle-align-center"></li></ul>
+                                            </div>
+                                		</div>
+                                        <!-- end overlay -->
+                                        <img src="images/team_05.jpg" alt="team member">
+                                        <span class="name tag-black">luke</span>
+                                        <h5 class="text-accent">System Adminstrator</h5>
+                                        <ul class="link-module-icons">
+                                            <li class="icon-soc-cir-blk-fb" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-tumblr" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-twitter" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-linkedin" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-dribble" onclick='window.location.href="#"'></li>
+                                        </ul>                          
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+
+                            <div class="c4">
+                                <div class="team-member">
+                                    <div class="team-content">
+                                        <!-- overlay -->
+                                        <div class="rollover" >
+                                            <div class="caption">
+                                                <h3>Just Started last week. Love these people!</h3>
+                                                <ul class="link-module-icons-floating"><li class="icon-acc-email circle-align-center"></li></ul>
+                                            </div>
+                                		</div>
+                                        <!-- end overlay -->
+                                        <img src="images/team_01.jpg" alt="team member">
+                                        <span class="name tag-black">andor</span>
+                                        <h5 class="text-accent">Visual Designer</h5>
+                                        <ul class="link-module-icons">
+                                            <li class="icon-soc-cir-blk-fb" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-tumblr" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-twitter" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-linkedin" onclick='window.location.href="#"'></li>
+                                            <li class="icon-soc-cir-blk-dribble" onclick='window.location.href="#"'></li>
+                                        </ul>                              
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            
+                            */%>
+
+                    </div>
+                </div> 
+            </section>
+            <!-- END Section / "Team" -->
+            
+            <!-- START Section / "Contact" -->
+            <section id="contact">
+                <div class="fullscreen-section-wrapper overlay-diagonal-dark">
+                    <h2><%= lingua.get_in_touch_with_us %></h2>
+                    <div class="c8">
+                        <%/* <p id="contactResponse"></p> */%>
+                        <form method="post" action="#" id="contactform" class="contactform">
+                            <input type="text" name="name" id="name" value="<%= lingua.form_name %>" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" class="field text-half-width"/>
+
+                            <input type="text" name="email" id="email" value="<%= lingua.form_email %>" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" class="field text-half-width end"/>
+                            
+                            <%/*
+                            <input type="text" name="monthly-impressions" id="monthly-impressions" value="monthly impressions" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" class="field text-half-width"/>
+
+                            <input type="text" name="monthly-uniques" id="monthly-uniques" value="monthly uniques" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" class="field text-half-width end"/>
+                            
+                            <input type="text" name="site-description" id="site-description" value="site description" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" class="field text wfull"/>
+                            
+                            */%>
+                            
+                            <input type="text" name="subject" id="subject" value="<%= lingua.form_subject %>" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" class="field text wfull"/>
+
+                            <textarea rows="25" cols="45" id="comments" name="comments" class="field"></textarea>
+                            <div id="contactOk"><input type="button" onClick="submitContactForm()" id="submitbtn" value="<%= lingua.form_send_it %>" class="field button" /></div><div id="contactKo"></div>
+                           
+                        </form>
+                    </div>
+                    <div class="c4 end">
+                        <h3><%= lingua.we_are_available %></h3>
+                        <p><%= lingua.we_are_available_body %></p>
+                        <h3 class="rule-top"><%= lingua.contact_information %></h3>
+                        <div class="contact-info">
+                            <div class="row"><div class="icon-acc-marker circle align-left"></div><div><p><strong><%= lingua.address %></strong></p></div></div>
+                            <div class="clearfix"></div>
+                            <div class="row"><div class="icon-acc-mobile circle align-left"></div><div><p><strong><%= lingua.phone %></strong></p></div></div>
+                            <div class="clearfix"></div>
+                            <%/*
+                            <div class="row"><div class="icon-acc-blog circle align-left"></div><div><p><strong>harkblog.com</strong></p></div></div>
+                            <div class="clearfix"></div>
+                            */%>
+                            <div class="row"><div class="icon-acc-email circle align-left"></div><div><p><strong><%= lingua.email %></strong></p></div></div>
+                        </div>
+                   </div>
+                   <div class="clear-float"></div>
+                </div>
+            </section>
+            <!-- END Section / "Contact" -->
+            <!-- START Section / "Map" -->
+           	<section id="map">
+            	<div id="my-map"></div>
+            </section>
+			<!-- END Section / "Map" -->
+            <!-- START Footer -->
+            <footer class="wfull dark-grey end">
+            	<div class="padding align-center">
+                    <ul>
+                        <li class="copyright"><p>© <%= year %> <%= lingua.codigo %>. <%= lingua.based_on %> <strong class="text-white"><%= lingua.yok %></strong>. <%= lingua.powered_by %> <a href='http://keystonejs.com'>keystoneJS</a></p></li>
+                    </ul>  
+                    <ul class="link-module-icons align-center">
+                    	<%/*
+						<li class="icon-soc-cir-blk-fb" onclick='window.location.href="#"'></li>
+                        <li class="icon-soc-cir-blk-tumblr" onclick='window.location.href="#"'></li>
+                        <li class="icon-soc-cir-blk-twitter" onclick='window.location.href="#"'></li>
+                        <li class="icon-soc-cir-blk-linkedin" onclick='window.location.href="#"'></li>
+                        <li class="icon-soc-cir-blk-dribble" onclick='window.location.href="#"'></li>
+                        <li class="icon-soc-cir-blk-vimeo" onclick='window.location.href="#"'></li>
+                        <li class="icon-soc-cir-blk-youtube" onclick='window.location.href="#"'></li>
+                        */%>
+                    </ul> 
+                </div>
+            </footer>
+            <!-- END Footer -->
+        </div>
+        <!-- END Main Content Wrapper -->
+
+
+        <!-- Scrollto & Link Highlight -->  
+        <script>
+            $(document).ready(function(){
+        
+                /** 
+                 * This part does the "fixed navigation after scroll" functionality
+                 * We use the jQuery function scroll() to recalculate our variables as the 
+                 * page is scrolled/
+                 */
+
+	            $(window).scroll(function(){
+                    var current_width = $(window).width();
+				    var window_top = $(window).scrollTop() + 22; // the number should equal the margin-top value for nav.stick
+                    var div_top = $('#nav-anchor').offset().top;
+                    if (current_width > 1190 && window_top > div_top) {
+                        $('nav').addClass('stick');
+                    } else {
+                        $('nav').removeClass('stick');
+                    }
+                });
+        
+
+                $("nav a").not('#blog, #submitbtn').click(function(evn){
+                    evn.preventDefault();
+                    $('html,body').scrollTo(this.hash, this.hash); 
+					exclude: ['#blog']
+                });
+
+                /**
+                 * Highlighting functionality.
+                 */
+                var aChildren = $("nav li").children(); // find the a children of the list items
+                var aArray = []; // create the empty aArray
+                for (var i=0; i < aChildren.length; i++) {    
+                    var aChild = aChildren[i];
+                    var ahref = $(aChild).attr('href');
+                    aArray.push(ahref);
+                } // this for loop fills the aArray with attribute href values
+        
+                $(window).scroll(function(){
+                    var windowPos = $(window).scrollTop()+ 55; // get the offset of the window from the top of page
+                    var windowHeight = $(window).height(); // get the height of the window
+                    var docHeight = $(document).height();
+            
+                    for (var i=0; i < aArray.length; i++) {
+                        var theID = aArray[i];
+                        var divPos = $(theID).offset().top; // get the offset of the div from the top of page
+                        var divHeight = $(theID).height(); // get the height of the div in question
+                        if (windowPos >= divPos && windowPos < (divPos + divHeight)) {
+                            $("a[href='" + theID + "']").addClass("nav-active");
+                        } else {
+                            $("a[href='" + theID + "']").removeClass("nav-active");
+                        }
+                    }
+            
+                    if(windowPos + windowHeight == docHeight) {
+                        if (!$("nav li:last-child a").hasClass("nav-active")) {
+                            var navActiveCurrent = $(".nav-active").attr("href");
+                            $("a[href='" + navActiveCurrent + "']").removeClass("nav-active");
+                            $("nav li:last-child a").addClass("nav-active");
+                        }
+                    }
+                });
+            });
+
+        </script>
+
+        <!-- Flexslider -->
+        <script src="js/jquery.flexslider.js"></script>
+        <script type="text/javascript">
+            $(window).load(function() {
+                $('.flexslider').flexslider({
+                    animation: "slide"
+                });
+            });
+        </script>
+        <!-- Flexslider / Syntax Highlighter -->
+        <script type="text/javascript" src="js/shCore.js"></script>
+        <script type="text/javascript" src="js/shBrushXml.js"></script>
+        <script type="text/javascript" src="js/shBrushJScript.js"></script>
+
+
+    </body>
+</html>

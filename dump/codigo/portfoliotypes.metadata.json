@@ -1,0 +1,1 @@
+{ "indexes" : [ { "v" : 1, "name" : "_id_", "key" : { "_id" : 1 }, "ns" : "codigo.portfoliotypes" }, { "v" : 1, "name" : "key_1", "key" : { "key" : 1 }, "ns" : "codigo.portfoliotypes", "background" : true, "safe" : null } ] }
